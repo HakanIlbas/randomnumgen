@@ -24,10 +24,20 @@ public class RandomNumberGenerator {
 
             System.out.println("To generate a number enter a lower and upper bound.");
             System.out.println("Enter lower bound");
+
             String firstbound = sc.nextLine();
+            if(firstbound.equals("")){
+                System.out.println("No input given, re-enter input");
+                continue;
+            }
+
 
             System.out.println("Enter upper bound");
             String secondbound = sc.nextLine();
+            if(secondbound.equals("")){
+                System.out.println("No input given, re-enter input");
+                continue;
+            }
 
             if(inputvalidator(firstbound, secondbound)) {
                 random = Integer.parseInt(firstbound) + (int) (Math.random() * ((Integer.parseInt(secondbound) - Integer.parseInt(firstbound)) + 1));
@@ -43,7 +53,7 @@ public class RandomNumberGenerator {
     public static boolean inputvalidator(String lower, String upper){
         for(char c: lower.toCharArray()){
             if(!Character.isDigit(c)){
-                System.out.println("Upperbound contains characters which are not digits");
+                System.out.println("Lowerbound contains characters which are not digits");
                 System.out.println("Re-enter input");
                 return false;
             }
