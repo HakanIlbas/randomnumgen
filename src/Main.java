@@ -12,10 +12,25 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    Stage window;
+    static Stage window;
+    static TextField lowerbound, upperbound;
+    static Text output;
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public static void setLowerbound(String string){
+        lowerbound.setText(string);
+
+    }
+
+    public static void setUpperbound(String string){
+        upperbound.setText(string);
+    }
+
+    public static void setOutput(String random){
+        output.setText(random);
     }
 
     @FXML
@@ -25,9 +40,9 @@ public class Main extends Application {
         window.setTitle("Random Number Generator");
         Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
 
-        TextField lowerbound = (TextField) root.lookup("#lowerboundinput");
-        TextField upperbound = (TextField) root.lookup("#upperboundinput");
-        Text output = (Text) root.lookup("#randomnumbertext");
+        lowerbound = (TextField) root.lookup("#lowerboundinput");
+        upperbound = (TextField) root.lookup("#upperboundinput");
+        output = (Text) root.lookup("#randomnumbertext");
         Button generate = (Button) root.lookup("#generatebutton");
 
         Scene scene = new Scene(root);

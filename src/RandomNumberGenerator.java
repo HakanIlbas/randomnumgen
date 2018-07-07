@@ -6,6 +6,21 @@ public class RandomNumberGenerator {
         launcher();
     }
 
+    public static void JavaFXLauncher(String firstbound, String secondbound){
+        int random;
+        try {
+            if(inputvalidator(firstbound, secondbound)) {
+                random = Integer.parseInt(firstbound) + (int) (Math.random() * ((Integer.parseInt(secondbound) - Integer.parseInt(firstbound)) + 1));
+                Main.setOutput(Integer.toString(random));
+            }
+
+        } catch(NumberFormatException e ){
+            Main.setLowerbound("Pick smaller number");
+            Main.setUpperbound("Integer overflow");
+        }
+
+    }
+
     public static void launcher(){
         boolean running = true;
         int random = 0;
@@ -59,6 +74,7 @@ public class RandomNumberGenerator {
             if(!Character.isDigit(c)){
                 System.out.println("Lowerbound contains characters which are not digits");
                 System.out.println("Re-enter input");
+                Main.setLowerbound("Input contains non-Digits");
                 return false;
             }
         }
@@ -67,6 +83,7 @@ public class RandomNumberGenerator {
             if(!Character.isDigit(c)){
                 System.out.println("Upperbound contains characters which are not digits");
                 System.out.println("Re-enter input");
+                Main.setUpperbound("Input contains non-Digits");
                 return false;
             }
         }
@@ -74,6 +91,8 @@ public class RandomNumberGenerator {
         if(Integer.parseInt(lower)>Integer.parseInt(upper)){
             System.out.println("Lowerbound is larger than upperbound");
             System.out.println("Re-enter input with lower lowerbound");
+            Main.setLowerbound("Lowerbound is higher");
+            Main.setUpperbound("than Upperbound");
             return false;
         }
         return true;
