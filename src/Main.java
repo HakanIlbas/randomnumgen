@@ -45,7 +45,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         window = primaryStage;
-        window.setTitle("Random Number Generator");
+        window.setTitle("RNG");
         Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
 
         lowerbound = (TextField) root.lookup("#lowerboundinput");
@@ -53,7 +53,7 @@ public class Main extends Application {
         output = (Text) root.lookup("#randomnumberoutput");
         Button generate = (Button) root.lookup("#generatebutton");
 
-        generate.setOnAction( e-> buttonpress());
+        generate.setOnAction( e -> buttonpress());
 
         Scene scene = new Scene(root);
         window.setScene(scene);

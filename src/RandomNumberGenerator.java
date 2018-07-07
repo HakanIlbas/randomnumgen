@@ -71,7 +71,7 @@ public class RandomNumberGenerator {
 
     public static boolean inputvalidator(String lower, String upper){
         for(char c: lower.toCharArray()){
-            if(!Character.isDigit(c)){
+            if(!Character.isDigit(c)&&c!='-'){
                 System.out.println("Lowerbound contains characters which are not digits");
                 System.out.println("Re-enter input");
                 Main.setLowerbound("Input contains non-Digits");
@@ -80,7 +80,7 @@ public class RandomNumberGenerator {
         }
 
         for(char c: upper.toCharArray()){
-            if(!Character.isDigit(c)){
+            if(!Character.isDigit(c)&&c!='-'){
                 System.out.println("Upperbound contains characters which are not digits");
                 System.out.println("Re-enter input");
                 Main.setUpperbound("Input contains non-Digits");
