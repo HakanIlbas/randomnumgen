@@ -24,14 +24,14 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <TextField fx:id="lowerboundinput" layoutX="56.0" layoutY="101.0" prefHeight="31.0" prefWidth="188.0" />
-      <TextField fx:id="upperboundinput" layoutX="56.0" layoutY="183.0" prefHeight="31.0" prefWidth="188.0" />
+      <TextField fx:id="lowerboundinput" alignment="CENTER" layoutX="56.0" layoutY="101.0" prefHeight="31.0" prefWidth="188.0" />
+      <TextField fx:id="upperboundinput" alignment="CENTER" layoutX="56.0" layoutY="183.0" prefHeight="31.0" prefWidth="188.0" />
       <Text fx:id="randomnumbertext" layoutX="56.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Random number:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="randomnumberoutput" layoutX="-1.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="301.0">
+      <Text fx:id="randomnumberoutput" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="301.0">
          <font>
             <Font size="46.0" />
          </font>

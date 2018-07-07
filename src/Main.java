@@ -33,6 +33,14 @@ public class Main extends Application {
         output.setText(random);
     }
 
+    public static void buttonpress(){
+        if(!lowerbound.getText().equals("")|| !upperbound.getText().equals("")){
+                RandomNumberGenerator.JavaFXLauncher(lowerbound.getText(), upperbound.getText());
+        }else{
+            setOutput("EMPTY");
+        }
+    }
+
     @FXML
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -42,8 +50,10 @@ public class Main extends Application {
 
         lowerbound = (TextField) root.lookup("#lowerboundinput");
         upperbound = (TextField) root.lookup("#upperboundinput");
-        output = (Text) root.lookup("#randomnumbertext");
+        output = (Text) root.lookup("#randomnumberoutput");
         Button generate = (Button) root.lookup("#generatebutton");
+
+        generate.setOnAction( e-> buttonpress());
 
         Scene scene = new Scene(root);
         window.setScene(scene);
