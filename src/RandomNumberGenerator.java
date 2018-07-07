@@ -39,14 +39,18 @@ public class RandomNumberGenerator {
                 continue;
             }
 
-            if(inputvalidator(firstbound, secondbound)) {
-                random = Integer.parseInt(firstbound) + (int) (Math.random() * ((Integer.parseInt(secondbound) - Integer.parseInt(firstbound)) + 1));
-            }else{
+            try {
+                if(inputvalidator(firstbound, secondbound)) {
+                    random = Integer.parseInt(firstbound) + (int) (Math.random() * ((Integer.parseInt(secondbound) - Integer.parseInt(firstbound)) + 1));
+                }else{
+                    continue;
+                }
+
+            } catch(NumberFormatException e ){
+                System.out.println("Integer overflow, pick a smaller number");
                 continue;
             }
-
             System.out.println("The randomly generated number is: " + random);
-
         }
     }
 
