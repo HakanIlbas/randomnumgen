@@ -1,10 +1,13 @@
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -54,6 +57,18 @@ public class Main extends Application {
         Button generate = (Button) root.lookup("#generatebutton");
 
         generate.setOnAction( e -> buttonpress());
+
+        lowerbound.setOnKeyPressed( e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                upperbound.requestFocus();
+            }
+        });
+
+        upperbound.setOnKeyPressed( e -> {
+            if(e.getCode() == KeyCode.ENTER){
+                generate.fire();
+            }
+        });
 
         Scene scene = new Scene(root);
         window.setScene(scene);
