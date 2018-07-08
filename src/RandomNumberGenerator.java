@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class RandomNumberGenerator {
 
@@ -12,13 +13,13 @@ public class RandomNumberGenerator {
             if(inputvalidator(firstbound, secondbound)) {
                 random = Integer.parseInt(firstbound) + (int) (Math.random() * ((Integer.parseInt(secondbound) - Integer.parseInt(firstbound)) + 1));
                 Main.setOutput(Integer.toString(random));
+
             }
 
-        } catch(NumberFormatException e ){
+        } catch(NumberFormatException e) {
             Main.setLowerbound("Pick smaller number");
             Main.setUpperbound("Integer overflow");
         }
-
     }
 
     public static void launcher(){

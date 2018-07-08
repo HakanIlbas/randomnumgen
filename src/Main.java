@@ -1,5 +1,5 @@
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,9 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -37,7 +37,7 @@ public class Main extends Application {
     }
 
     public static void buttonpress(){
-        if(!lowerbound.getText().equals("")|| !upperbound.getText().equals("")){
+        if(!lowerbound.getText().equals("")|| !upperbound.getText().equals("")) {
                 RandomNumberGenerator.JavaFXLauncher(lowerbound.getText(), upperbound.getText());
         }else{
             setOutput("EMPTY");
@@ -56,7 +56,19 @@ public class Main extends Application {
         output = (Text) root.lookup("#randomnumberoutput");
         Button generate = (Button) root.lookup("#generatebutton");
 
-        generate.setOnAction( e -> buttonpress());
+        generate.setOnAction(e -> {
+            int i =20000;
+            while(i!=0) {
+                PauseTransition pause = new PauseTransition(Duration.seconds(0.25));
+                pause.setOnFinished(f -> {
+                    buttonpress();
+                });
+                pause.play();
+                i--;
+            }
+
+        });
+
 
         lowerbound.setOnKeyPressed( e -> {
             if (e.getCode() == KeyCode.ENTER) {
