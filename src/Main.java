@@ -23,19 +23,35 @@ public class Main extends Application {
         launch(args);
     }
 
+    /**
+     * setter for the lowerbound textfield
+     * @param string
+     */
     public static void setLowerbound(String string){
         lowerbound.setText(string);
 
     }
 
+    /**
+     * setter for the upperbound textfield
+     * @param string
+     */
     public static void setUpperbound(String string){
         upperbound.setText(string);
     }
 
+    /**
+     * setter for the output text.
+     * @param random
+     */
     public static void setOutput(String random){
         output.setText(random);
     }
 
+    /**
+     * Method of which its main function is more or less to check whether or not
+     * input is empty.
+     */
     public static void buttonpress(){
         if(!lowerbound.getText().equals("")|| !upperbound.getText().equals("")) {
                 RandomNumberGenerator.JavaFXLauncher(lowerbound.getText(), upperbound.getText());
@@ -44,6 +60,15 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * The primarystage consists of a small animation when generating a number
+     * which basically generates a random number 20000 times to simulate an animation,
+     * pause is also for the animation.
+     * Then there is a functionality to skip to the next textfield when enter is pressed
+     * and a functionality to generate a number when on the second textfield. 
+     * @param primaryStage
+     * @throws IOException
+     */
     @FXML
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -68,7 +93,6 @@ public class Main extends Application {
             }
 
         });
-
 
         lowerbound.setOnKeyPressed( e -> {
             if (e.getCode() == KeyCode.ENTER) {

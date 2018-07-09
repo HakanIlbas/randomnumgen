@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class RandomNumberGenerator {
 
@@ -7,6 +6,13 @@ public class RandomNumberGenerator {
         launcher();
     }
 
+    /**
+     * Launcher specifically created for JavaFX, doesnt need a while loop.
+     * There is a try/catch block in case there happens an integer overflow when the user enters
+     * a number too large.
+     * @param firstbound is the lowerbound
+     * @param secondbound is the upperbound
+     */
     public static void JavaFXLauncher(String firstbound, String secondbound){
         int random;
         try {
@@ -22,6 +28,13 @@ public class RandomNumberGenerator {
         }
     }
 
+    /**
+     * Generic launcher for the console version of the random number
+     * generator. With the while loop the program does not have to be restarted
+     * when you want to generate a new number
+     * The method most consists of input checkers and validators, which check if
+     * the input is valid or not. (i.e. no letters, no empty inputs)
+     */
     public static void launcher(){
         boolean running = true;
         int random = 0;
@@ -70,6 +83,14 @@ public class RandomNumberGenerator {
         }
     }
 
+    /**
+     * Method that checks whether or not the input only consists of digits and
+     * - signs for negative numbers. It does this for the lower and upperbound, also
+     * checks whether or not upperbound is larger than lowerbound.
+     * @param lower
+     * @param upper
+     * @return
+     */
     public static boolean inputvalidator(String lower, String upper){
         for(char c: lower.toCharArray()){
             if(!Character.isDigit(c)&&c!='-'){
